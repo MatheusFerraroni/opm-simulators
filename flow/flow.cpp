@@ -80,6 +80,19 @@ int main(int argc, char** argv)
     printf("\n[MO833] TOTAL_MAIN_TIME: %f\n", elapsed);
 
 
+
+    std::string line3;
+    std::ifstream myfile3 ("/home/ubuntu/OPM_TOTAL_PARAMOUNT_TIME.txt");
+    getline (myfile3,line3);
+    myfile3.close();
+
+
+    const char *line4 = line3.c_str();
+    double total_pi_time = atof(line4);
+
+    double beta = (elapsed-total_pi_time)/total_pi_time;
+    printf("\n[MO833] BETA: %f\n", beta);
+
     return res;
 }
 
