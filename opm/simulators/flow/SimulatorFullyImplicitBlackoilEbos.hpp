@@ -34,6 +34,9 @@
 #include <opm/common/Exceptions.hpp>
 #include <opm/common/ErrorMacros.hpp>
 
+#include <fstream>
+#include <stdlib.h>
+
 BEGIN_PROPERTIES
 
 NEW_PROP_TAG(EnableAdaptiveTimeStepping);
@@ -158,8 +161,46 @@ public:
 
         SimulatorReport report;
 
+
+        std::string line;
+        std::ifstream myfile ("/home/ubuntu/OPM_MAX_ITERATION_CONFIG.txt");
+        getline (myfile,line);
+        myfile.close();
+
+
+        const char *line2 = line.c_str();
+        int max_pi = atoi(line2);
+
+
+
+        std::string line3;
+        std::ifstream myfile2 ("/home/ubuntu/OPM_STARTING_TIME.txt");
+        getline (myfile2,line3);
+        myfile2.close();
+
+
+        const char *line4 = line3.c_str();
+        double glob_init_time = atof(line4);
+
+        double t0;
+        struct timeval tp1;
+        struct timezone tzp1;
+        gettimeofday(&tp1, &tzp1);
+        t0 = ((double) tp1.tv_sec+ (double) tp1.tv_usec*1.e-6);
+        double elapsed = t0-glob_init_time;
+        printf("\n[MO833] t1_antes_paramount: %f\n",elapsed);
+
+        int iteracao_total = 0;
         // Main simulation loop.
-        while (!timer.done()) {
+        while (!timer.done() && iteracao_total<max_pi) {
+
+            double t1, t2;
+            struct timeval tp2;
+            struct timezone tzp2;
+            gettimeofday(&tp2, &tzp2);
+            t1 = ((double) tp2.tv_sec+ (double) tp2.tv_usec*1.e-6);
+            iteracao_total += 1;
+
             if (schedule().exitStatus().has_value()) {
                 if (terminalOutput_) {
                     OpmLog::info("Stopping simulation since EXIT was triggered by an action keyword.");
@@ -274,6 +315,14 @@ public:
                     "total solver time " + std::to_string(report.success.solver_time) + " seconds.";
                 OpmLog::debug(msg);
             }
+
+
+            struct timeval tp3;
+            struct timezone tzp3;
+            gettimeofday(&tp3, &tzp3);
+            t2 = ((double) tp3.tv_sec+ (double) tp3.tv_usec*1.e-6);
+            elapsed = t2-t1;
+            printf("\n[MO833] Iteracao %d: %f\n", iteracao_total, elapsed);
 
         }
 

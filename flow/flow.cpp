@@ -23,9 +23,63 @@
 
 #include <opm/simulators/flow/Main.hpp>
 
+#include <sys/time.h>
+#include <string.h>
+#include <stdlib.h>
+#include <fstream>
+
+
 int main(int argc, char** argv)
 {
+
+
+    int p_max_iter = -1;
+    int MAX_PI = 10;
+
+    for (int i=0;i<argc;i++){
+
+        if(strcmp(argv[i],"-max-pi")==0){
+            p_max_iter = i+1;
+        }
+        if (i==p_max_iter){
+            MAX_PI = atoi(argv[i]);
+            break;
+        }
+    }
+
+    std::ofstream myfile;
+    myfile.open("/home/ubuntu/OPM_MAX_ITERATION_CONFIG.txt");
+    myfile << MAX_PI;
+    myfile.close();
+
+
+
+
+    std::ofstream myfile2;
+    myfile2.open("/home/ubuntu/OPM_STARTING_TIME.txt");
+    
+    double t1, t2, elapsed;
+    struct timeval tp;
+    struct timezone tzp;
+    gettimeofday(&tp, &tzp);
+    t1 = ((double) tp.tv_sec+ (double) tp.tv_usec*1.e-6);
+
+    myfile2 << std::fixed << t1;
+    myfile2.close();
+
+
     auto mainObject = Opm::Main(argc, argv);
-    return mainObject.runDynamic();
+    int res = mainObject.runDynamic();
+
+
+    struct timeval tp2;
+    struct timezone tzp2;
+    gettimeofday(&tp2, &tzp2);
+    t2 = ((double) tp2.tv_sec+ (double) tp2.tv_usec*1.e-6);
+    elapsed = t2-t1;
+    printf("\n[MO833] TOTAL_MAIN_TIME: %f\n", elapsed);
+
+
+    return res;
 }
 
