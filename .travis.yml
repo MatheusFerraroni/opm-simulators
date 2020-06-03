@@ -10,17 +10,26 @@ addons:
       - ubuntu-toolchain-r-test
       - george-edison55-precise-backports
     packages:
-      - libboost1.55-all-dev
-      - gcc-4.8
-      - g++-4.8
-      - gfortran-4.8
-      - liblapack-dev
-      - libgmp3-dev
-      - libsuitesparse-dev
-      - libeigen3-dev
-      - bc
+      - software-properties-common
+      - build-essential
+      - gfortran
+      - pkg-config
       - cmake
-      - cmake-data
+      - doxygen
+      - ghostscript
+      - texlive-latex-recommended
+      - gnuplot
+      - git-core
+      - mpi-default-dev
+      - libblas-dev
+      - libboost-all-dev
+      - libsuitesparse-dev
+      - libtrilinos-zoltan-dev
+      - libdune-common-dev
+      - libdune-geometry-dev
+      - libdune-istl-dev
+      - libdune-grid-dev
+      - unzip
 
 env:
   global:
