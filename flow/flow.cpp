@@ -90,6 +90,7 @@ int main(int argc, char** argv)
     const char *line4 = line3.c_str();
     double total_pi_time = atof(line4);
 
+
     double beta = (elapsed-total_pi_time)/total_pi_time;
     printf("\n[MO833] BETA: %f\n", beta);
 

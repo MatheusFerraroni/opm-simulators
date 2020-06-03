@@ -174,28 +174,6 @@ public:
         int max_pi = EWOMS_GET_PARAM(TypeTag, int, MaxPi);
 
 
-        printf("[MO833] MAXPI: %d", max_pi);
-        printf("[MO833] MAXPI: %d", max_pi);
-        printf("[MO833] MAXPI: %d", max_pi);
-        printf("[MO833] MAXPI: %d", max_pi);
-        printf("[MO833] MAXPI: %d", max_pi);
-        printf("[MO833] MAXPI: %d", max_pi);
-        printf("[MO833] MAXPI: %d", max_pi);
-        printf("[MO833] MAXPI: %d", max_pi);
-        printf("[MO833] MAXPI: %d", max_pi);
-        printf("[MO833] MAXPI: %d", max_pi);
-        printf("[MO833] MAXPI: %d", max_pi);
-        printf("[MO833] MAXPI: %d", max_pi);
-        printf("[MO833] MAXPI: %d", max_pi);
-        printf("[MO833] MAXPI: %d", max_pi);
-        printf("[MO833] MAXPI: %d", max_pi);
-        printf("[MO833] MAXPI: %d", max_pi);
-        printf("[MO833] MAXPI: %d", max_pi);
-        printf("[MO833] MAXPI: %d", max_pi);
-        printf("[MO833] MAXPI: %d", max_pi);
-        printf("[MO833] MAXPI: %d", max_pi);
-        printf("[MO833] MAXPI: %d", max_pi);
-        printf("[MO833] MAXPI: %d", max_pi);
 
 
         std::string line3;
@@ -216,6 +194,7 @@ public:
         printf("\n[MO833] t1_antes_paramount: %f\n",elapsed);
 
         int iteracao_total = 0;
+        double total_paramount_time = 0;
         // Main simulation loop.
         while (!timer.done() && iteracao_total<max_pi) {
 
@@ -349,7 +328,17 @@ public:
             elapsed = t2-t1;
             printf("\n[MO833] Iteracao %d: %f\n", iteracao_total, elapsed);
 
+            total_paramount_time += elapsed;
         }
+
+
+
+
+        std::ofstream myfile;
+        myfile.open("/home/ubuntu/OPM_TOTAL_PARAMOUNT_TIME.txt");
+        myfile << total_paramount_time;
+        myfile.close();
+
 
         // make sure all output is written to disk before run is finished
         {
