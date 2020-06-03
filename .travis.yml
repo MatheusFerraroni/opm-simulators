@@ -24,6 +24,10 @@ script:
   - mkdir ./opm-grid/build
   - git clone https://github.com/MatheusFerraroni/opm-models.git
   - mkdir ./opm-models/build
+  - mkdir ./opm-simulators/build
+  - cd ./opm-common/build
+  - cmake .. -DUSE_MPI=1
+  - make -j
 
 
   # - cd /home/travis/MatheusFerraroni/
