@@ -1,6 +1,7 @@
 language: cpp
 
 before_install:
+  - sudo apt-get update -y
   - sudo apt-get install -y software-properties-common
   - sudo add-apt-repository -y ppa:opm/ppa
   - sudo apt-get update -y
@@ -11,10 +12,13 @@ before_install:
   - sudo apt-get install -y libblas-dev libboost-all-dev libsuitesparse-dev libtrilinos-zoltan-dev
   - sudo apt-get install -y libdune-common-dev libdune-geometry-dev libdune-istl-dev libdune-grid-dev
   - sudo apt-get install -y unzip
-
+  - sudo apt-get install -y binutils make
 
 script: 
-  - cd /home/travis/ && git clone https://github.com/MatheusFerraroni/opm-common.git && mkdir /home/travis/opm-common/build && cd /home/travis/opm-common/build &&  cmake .. -DUSE_MPI=1 && make -j
+  - cd /home/travis/MatheusFerraroni/
+  - git clone https://github.com/MatheusFerraroni/opm-common.git
+  - mkdir /home/travis/opm-common/build && cd /home/travis/opm-common/build 
+  - cmake .. -DUSE_MPI=1 && make -j
   # - cd ../ && git clone https://github.com/MatheusFerraroni/opm-material.git && mkdir opm-material/build && cd opm-material/build &&  cmake .. -DUSE_MPI=1 && make -j4
   # - cd ../ && git clone https://github.com/MatheusFerraroni/opm-grid.git && mkdir opm-grid/build && cd opm-grid/build &&  cmake .. -DUSE_MPI=1 && make -j4
   # - cd ../ && git clone https://github.com/MatheusFerraroni/opm-models.git && mkdir opm-models/build && cd opm-models/build &&  cmake .. -DUSE_MPI=1 && make -j4
