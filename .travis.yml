@@ -17,7 +17,8 @@ before_install:
 script: 
   - cd /home/travis/MatheusFerraroni/
   - git clone https://github.com/MatheusFerraroni/opm-common.git
-  - mkdir /home/travis/opm-common/build && cd /home/travis/opm-common/build 
+  - mkdir /home/travis/MatheusFerraroni/opm-common/build
+  - cd /home/travis/MatheusFerraroni/opm-common/build 
   - cmake .. -DUSE_MPI=1 && make -j
   # - cd ../ && git clone https://github.com/MatheusFerraroni/opm-material.git && mkdir opm-material/build && cd opm-material/build &&  cmake .. -DUSE_MPI=1 && make -j4
   # - cd ../ && git clone https://github.com/MatheusFerraroni/opm-grid.git && mkdir opm-grid/build && cd opm-grid/build &&  cmake .. -DUSE_MPI=1 && make -j4
