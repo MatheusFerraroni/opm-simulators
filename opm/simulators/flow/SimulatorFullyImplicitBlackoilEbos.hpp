@@ -174,28 +174,28 @@ public:
         int max_pi = EWOMS_GET_PARAM(TypeTag, int, MaxPi);
 
 
-        printf("[MO833] MAXPI: %d", MaxPi);
-        printf("[MO833] MAXPI: %d", MaxPi);
-        printf("[MO833] MAXPI: %d", MaxPi);
-        printf("[MO833] MAXPI: %d", MaxPi);
-        printf("[MO833] MAXPI: %d", MaxPi);
-        printf("[MO833] MAXPI: %d", MaxPi);
-        printf("[MO833] MAXPI: %d", MaxPi);
-        printf("[MO833] MAXPI: %d", MaxPi);
-        printf("[MO833] MAXPI: %d", MaxPi);
-        printf("[MO833] MAXPI: %d", MaxPi);
-        printf("[MO833] MAXPI: %d", MaxPi);
-        printf("[MO833] MAXPI: %d", MaxPi);
-        printf("[MO833] MAXPI: %d", MaxPi);
-        printf("[MO833] MAXPI: %d", MaxPi);
-        printf("[MO833] MAXPI: %d", MaxPi);
-        printf("[MO833] MAXPI: %d", MaxPi);
-        printf("[MO833] MAXPI: %d", MaxPi);
-        printf("[MO833] MAXPI: %d", MaxPi);
-        printf("[MO833] MAXPI: %d", MaxPi);
-        printf("[MO833] MAXPI: %d", MaxPi);
-        printf("[MO833] MAXPI: %d", MaxPi);
-        printf("[MO833] MAXPI: %d", MaxPi);
+        printf("[MO833] MAXPI: %d", max_pi);
+        printf("[MO833] MAXPI: %d", max_pi);
+        printf("[MO833] MAXPI: %d", max_pi);
+        printf("[MO833] MAXPI: %d", max_pi);
+        printf("[MO833] MAXPI: %d", max_pi);
+        printf("[MO833] MAXPI: %d", max_pi);
+        printf("[MO833] MAXPI: %d", max_pi);
+        printf("[MO833] MAXPI: %d", max_pi);
+        printf("[MO833] MAXPI: %d", max_pi);
+        printf("[MO833] MAXPI: %d", max_pi);
+        printf("[MO833] MAXPI: %d", max_pi);
+        printf("[MO833] MAXPI: %d", max_pi);
+        printf("[MO833] MAXPI: %d", max_pi);
+        printf("[MO833] MAXPI: %d", max_pi);
+        printf("[MO833] MAXPI: %d", max_pi);
+        printf("[MO833] MAXPI: %d", max_pi);
+        printf("[MO833] MAXPI: %d", max_pi);
+        printf("[MO833] MAXPI: %d", max_pi);
+        printf("[MO833] MAXPI: %d", max_pi);
+        printf("[MO833] MAXPI: %d", max_pi);
+        printf("[MO833] MAXPI: %d", max_pi);
+        printf("[MO833] MAXPI: %d", max_pi);
 
 
         std::string line3;
