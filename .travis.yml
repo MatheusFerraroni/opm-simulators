@@ -27,7 +27,7 @@ script:
   - mkdir ./opm-simulators/build
   - cd ./opm-common/build
   - cmake ..
-  - make -j
+  - make
 
 
   # - cd /home/travis/MatheusFerraroni/
