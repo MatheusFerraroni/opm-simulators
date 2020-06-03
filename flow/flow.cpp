@@ -33,24 +33,24 @@ int main(int argc, char** argv)
 {
 
 
-    int p_max_iter = -1;
-    int MAX_PI = 10;
+    // int p_max_iter = -1;
+    // int MAX_PI = 10;
 
-    for (int i=0;i<argc;i++){
+    // for (int i=0;i<argc;i++){
 
-        if(strcmp(argv[i],"-max-pi")==0){
-            p_max_iter = i+1;
-        }
-        if (i==p_max_iter){
-            MAX_PI = atoi(argv[i]);
-            break;
-        }
-    }
+    //     if(strcmp(argv[i],"-max-pi")==0){
+    //         p_max_iter = i+1;
+    //     }
+    //     if (i==p_max_iter){
+    //         MAX_PI = atoi(argv[i]);
+    //         break;
+    //     }
+    // }
 
-    std::ofstream myfile;
-    myfile.open("/home/ubuntu/OPM_MAX_ITERATION_CONFIG.txt");
-    myfile << MAX_PI;
-    myfile.close();
+    // std::ofstream myfile;
+    // myfile.open("/home/ubuntu/OPM_MAX_ITERATION_CONFIG.txt");
+    // myfile << MAX_PI;
+    // myfile.close();
 
 
 

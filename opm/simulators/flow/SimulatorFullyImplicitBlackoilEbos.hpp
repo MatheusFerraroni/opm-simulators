@@ -162,15 +162,40 @@ public:
         SimulatorReport report;
 
 
-        std::string line;
-        std::ifstream myfile ("/home/ubuntu/OPM_MAX_ITERATION_CONFIG.txt");
-        getline (myfile,line);
-        myfile.close();
+        // std::string line;
+        // std::ifstream myfile ("/home/ubuntu/OPM_MAX_ITERATION_CONFIG.txt");
+        // getline (myfile,line);
+        // myfile.close();
 
 
-        const char *line2 = line.c_str();
-        int max_pi = atoi(line2);
+        // const char *line2 = line.c_str();
+        // int max_pi = atoi(line2);
 
+        int max_pi = EWOMS_GET_PARAM(TypeTag, int, MaxPi);
+
+
+        printf("[MO833] MAXPI: %d", MaxPi);
+        printf("[MO833] MAXPI: %d", MaxPi);
+        printf("[MO833] MAXPI: %d", MaxPi);
+        printf("[MO833] MAXPI: %d", MaxPi);
+        printf("[MO833] MAXPI: %d", MaxPi);
+        printf("[MO833] MAXPI: %d", MaxPi);
+        printf("[MO833] MAXPI: %d", MaxPi);
+        printf("[MO833] MAXPI: %d", MaxPi);
+        printf("[MO833] MAXPI: %d", MaxPi);
+        printf("[MO833] MAXPI: %d", MaxPi);
+        printf("[MO833] MAXPI: %d", MaxPi);
+        printf("[MO833] MAXPI: %d", MaxPi);
+        printf("[MO833] MAXPI: %d", MaxPi);
+        printf("[MO833] MAXPI: %d", MaxPi);
+        printf("[MO833] MAXPI: %d", MaxPi);
+        printf("[MO833] MAXPI: %d", MaxPi);
+        printf("[MO833] MAXPI: %d", MaxPi);
+        printf("[MO833] MAXPI: %d", MaxPi);
+        printf("[MO833] MAXPI: %d", MaxPi);
+        printf("[MO833] MAXPI: %d", MaxPi);
+        printf("[MO833] MAXPI: %d", MaxPi);
+        printf("[MO833] MAXPI: %d", MaxPi);
 
 
         std::string line3;

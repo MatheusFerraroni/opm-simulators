@@ -41,6 +41,7 @@ NEW_PROP_TAG(MaxWelleqIter);
 NEW_PROP_TAG(UseMultisegmentWell);
 NEW_PROP_TAG(MaxSinglePrecisionDays);
 NEW_PROP_TAG(MaxStrictIter);
+NEW_PROP_TAG(MaxPi);
 NEW_PROP_TAG(SolveWelleqInitially);
 NEW_PROP_TAG(UpdateEquationsScaling);
 NEW_PROP_TAG(UseUpdateStabilization);
@@ -69,6 +70,7 @@ SET_INT_PROP(FlowModelParameters, MaxWelleqIter, 30);
 SET_BOOL_PROP(FlowModelParameters, UseMultisegmentWell, true);
 SET_SCALAR_PROP(FlowModelParameters, MaxSinglePrecisionDays, 20.0);
 SET_INT_PROP(FlowModelParameters, MaxStrictIter, 8);
+SET_INT_PROP(FlowModelParameters, MaxPi, 0);
 SET_BOOL_PROP(FlowModelParameters, SolveWelleqInitially, true);
 SET_BOOL_PROP(FlowModelParameters, UpdateEquationsScaling, false);
 SET_BOOL_PROP(FlowModelParameters, UseUpdateStabilization, true);
@@ -202,6 +204,9 @@ namespace Opm
             matrix_add_well_contributions_ = EWOMS_GET_PARAM(TypeTag, bool, MatrixAddWellContributions);
 
             deck_file_name_ = EWOMS_GET_PARAM(TypeTag, std::string, EclDeckFileName);
+
+
+            // max_pi_ = EWOMS_GET_PARAM(TypeTag, int, MaxPi);
         }
 
         static void registerParameters()
@@ -231,6 +236,9 @@ namespace Opm
             EWOMS_REGISTER_PARAM(TypeTag, bool, UseUpdateStabilization, "Try to detect and correct oscillations or stagnation during the Newton method");
             EWOMS_REGISTER_PARAM(TypeTag, bool, MatrixAddWellContributions, "Explicitly specify the influences of wells between cells in the Jacobian and preconditioner matrices");
             EWOMS_REGISTER_PARAM(TypeTag, bool, EnableWellOperabilityCheck, "Enable the well operability checking");
+        
+            EWOMS_REGISTER_PARAM(TypeTag, int, MaxPi, "Numero maximo de paramount iterations");
+
         }
     };
 } // namespace Opm
