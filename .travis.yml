@@ -1,9 +1,9 @@
 language: cpp
 
 before_install:
- - echo "yes" | sudo add-apt-repository ppa:kalakris/cmake
- - sudo apt-get install libfftw3-dev libopenmpi-dev libx11-dev zlib1g-dev libgsl0-dev libxml2-dev libblas-dev liblapack-dev libboost-dev cmake
- - sudo apt-get update -y
+ # - echo "yes" | sudo add-apt-repository ppa:kalakris/cmake
+ # - sudo apt-get install libfftw3-dev libopenmpi-dev libx11-dev zlib1g-dev libgsl0-dev libxml2-dev libblas-dev liblapack-dev libboost-dev cmake
+ # - sudo apt-get update -y
  - sudo apt-get install -y software-properties-common
  - sudo add-apt-repository -y ppa:opm/ppa
  - sudo apt-get update -y
