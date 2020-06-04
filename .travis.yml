@@ -62,7 +62,7 @@ script:
   - cd ../../
   - cd opm-simulators/build
   - cmake ..
-  - travis_wait 30 make -j4
+  - travis_wait make -j2
 
 
 
