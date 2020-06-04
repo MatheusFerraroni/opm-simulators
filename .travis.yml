@@ -43,9 +43,9 @@ script:
   - mkdir ./opm-simulators/build
   - cmake --version
   - make --version
-  # - cd ./opm-common/build
-  # - cmake ..
-  # - make
+  - cd ./opm-common/build
+  - cmake ..
+  - make
 
 
   # - cd /home/travis/MatheusFerraroni/
