@@ -58,6 +58,7 @@ script:
   - cd opm-models/build
   - cmake ..
   - make -j4
+  - cd ../../
   - cd opm-simulators/build
   - cmake ..
   - make -j4
