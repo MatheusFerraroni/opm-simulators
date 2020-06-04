@@ -191,7 +191,7 @@ public:
         gettimeofday(&tp1, &tzp1);
         t0 = ((double) tp1.tv_sec+ (double) tp1.tv_usec*1.e-6);
         double elapsed = t0-glob_init_time;
-        printf("\n[MO833] t1_antes_paramount: %f\n",elapsed);
+        printf("\n[MO833] t1_antes_paramount,%f\n",elapsed);
 
         double tempo_inicio_ate_aqui = elapsed+0;
 
