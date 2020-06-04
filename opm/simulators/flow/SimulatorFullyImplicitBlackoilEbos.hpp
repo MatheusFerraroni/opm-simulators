@@ -193,6 +193,8 @@ public:
         double elapsed = t0-glob_init_time;
         printf("\n[MO833] t1_antes_paramount: %f\n",elapsed);
 
+        double tempo_inicio_ate_aqui = elapsed+0;
+
         int iteracao_total = 0;
         double total_paramount_time = 0;
         // Main simulation loop.
@@ -326,12 +328,20 @@ public:
             gettimeofday(&tp3, &tzp3);
             t2 = ((double) tp3.tv_sec+ (double) tp3.tv_usec*1.e-6);
             elapsed = t2-t1;
-            printf("\n[MO833] Iteracao %d: %f\n", iteracao_total, elapsed);
-
             total_paramount_time += elapsed;
+
+            printf("\n");
+            printf("[MO833] Paramount Iteration,%d,%f,%f\n",iteracao_total,elapsed,(total_paramount_time+tempo_inicio_ate_aqui));
         }
 
 
+        printf("\n");
+
+        if (max_pi>0){
+            printf("[MO833] PI avg,%f,%d\n",(total_paramount_time/max_pi),max_pi);
+        }else{
+            printf("[MO833] PI avg,0,0\n");
+        }
 
 
         std::ofstream myfile;

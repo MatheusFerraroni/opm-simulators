@@ -32,29 +32,6 @@
 int main(int argc, char** argv)
 {
 
-
-    // int p_max_iter = -1;
-    // int MAX_PI = 10;
-
-    // for (int i=0;i<argc;i++){
-
-    //     if(strcmp(argv[i],"-max-pi")==0){
-    //         p_max_iter = i+1;
-    //     }
-    //     if (i==p_max_iter){
-    //         MAX_PI = atoi(argv[i]);
-    //         break;
-    //     }
-    // }
-
-    // std::ofstream myfile;
-    // myfile.open("/home/ubuntu/OPM_MAX_ITERATION_CONFIG.txt");
-    // myfile << MAX_PI;
-    // myfile.close();
-
-
-
-
     std::ofstream myfile2;
     myfile2.open("/home/ubuntu/OPM_STARTING_TIME.txt");
     
@@ -77,7 +54,8 @@ int main(int argc, char** argv)
     gettimeofday(&tp2, &tzp2);
     t2 = ((double) tp2.tv_sec+ (double) tp2.tv_usec*1.e-6);
     elapsed = t2-t1;
-    printf("\n[MO833] TOTAL_MAIN_TIME: %f\n", elapsed);
+    printf("\n");
+    printf("[MO833] Total time,%f\n", elapsed);
 
 
 
@@ -90,9 +68,13 @@ int main(int argc, char** argv)
     const char *line4 = line3.c_str();
     double total_pi_time = atof(line4);
 
-
-    double beta = (elapsed-total_pi_time)/total_pi_time;
-    printf("\n[MO833] BETA: %f\n", beta);
+    printf("\n");
+    if(total_pi_time>0){
+      double beta = (elapsed-total_pi_time)/total_pi_time;
+      printf("[MO833] Beta: %f\n", beta);
+    }else{
+      printf("[MO833] Beta: 1\n");
+    }
 
     return res;
 }
