@@ -45,8 +45,22 @@ script:
   - make --version
   - cd ./opm-common/build
   - cmake ..
-  - make
-
+  - make -j4
+  - cd ../../
+  - cd opm-material/build
+  - cmake ..
+  - make j4
+  - cd ../../
+  - cd opm-grid/build
+  - cmake ..
+  - make j4
+  - cd ../../
+  - cd opm-models/build
+  - cmake ..
+  - make j4
+  - cd opm-simulators/build
+  - cmake ..
+  - make j4
 
   # - cd /home/travis/MatheusFerraroni/
   # - git clone https://github.com/MatheusFerraroni/opm-common.git
