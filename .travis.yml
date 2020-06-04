@@ -27,6 +27,8 @@ before_install:
  - sudo apt-get install -y libdune-grid-dev
  - sudo apt-get install -y unzip
 
+install: travis wait 30 mvn install
+
 script: 
   - lsb_release -a
   - cmake --version
