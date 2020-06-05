@@ -338,7 +338,7 @@ public:
         printf("\n");
 
         if (max_pi>0){
-            printf("[MO833] PI avg,%f,%d\n",(total_paramount_time/max_pi),max_pi);
+            printf("[MO833] PI avg,%f,%d\n",(total_paramount_time/iteracao_total),iteracao_total);
         }else{
             printf("[MO833] PI avg,0,0\n");
         }
