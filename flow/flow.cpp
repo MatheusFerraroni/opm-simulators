@@ -71,9 +71,9 @@ int main(int argc, char** argv)
     printf("\n");
     if(total_pi_time>0){
       double beta = (elapsed-total_pi_time)/total_pi_time;
-      printf("[MO833] Beta: %f\n", beta);
+      printf("[MO833] Beta,%f\n", beta);
     }else{
-      printf("[MO833] Beta: 1\n");
+      printf("[MO833] Beta,1\n");
     }
 
     return res;
