@@ -64,7 +64,7 @@ script:
   - cd opm-simulators/build
   - cmake ..
   - travis_wait make -j2
-  - cd ../../opm-data/none
+  - cd ../../opm-data/norne
   - ../../opm-simulators/build/bin/flow --max-pi=10 NORNE_ATW2013.DATA
 
 
