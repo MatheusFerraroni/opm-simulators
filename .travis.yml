@@ -42,6 +42,7 @@ script:
   - git clone https://github.com/MatheusFerraroni/opm-models.git
   - mkdir ./opm-models/build
   - mkdir ./opm-simulators/build
+  - git clone https://github.com/MatheusFerraroni/opm-data.git
   - cmake --version
   - make --version
   - cd ./opm-common/build
@@ -63,10 +64,9 @@ script:
   - cd opm-simulators/build
   - cmake ..
   - travis_wait make -j2
-
+  - cd ../../opm-data/none
+  - ../../opm-simulators/build/bin/flow --max-pi=10 NORNE_ATW2013.DATA
 
 
 compiler:
-  # - clang
-  # - gcc
   - cmake
