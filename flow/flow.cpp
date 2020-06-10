@@ -28,19 +28,19 @@
 #include <stdlib.h>
 #include <fstream>
 
+#if HAVE_MPI
 #include <mpi.h>
+#endif // HAVE_MPI
 
 
 int main(int argc, char** argv)
 {
 
 
-    int world_size;
-    MPI_Comm_size(MPI_COMM_WORLD, &world_size);
-
-    // Get the rank of the process
-    int world_rank;
-    MPI_Comm_rank(MPI_COMM_WORLD, &world_rank);
+        int myRank = 0;
+#if HAVE_MPI
+        MPI_Comm_rank(MPI_COMM_WORLD, &myRank);
+#endif
 
 
     std::ofstream myfile2;
@@ -82,9 +82,9 @@ int main(int argc, char** argv)
     printf("\n");
     if(total_pi_time>0){
       double beta = (elapsed-total_pi_time)/total_pi_time;
-      printf("[MO833] Beta,%d,%f\n", world_rank, beta);
+      printf("[MO833] Beta,%d,%f\n", myRank, beta);
     }else{
-      printf("[MO833] Beta,%d,1\n", world_rank);
+      printf("[MO833] Beta,%d,1\n", myRank);
     }
 
     return res;
