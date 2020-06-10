@@ -37,6 +37,11 @@
 #include <fstream>
 #include <stdlib.h>
 
+#if HAVE_MPI
+#include <mpi.h>
+#endif // HAVE_MPI
+
+
 BEGIN_PROPERTIES
 
 NEW_PROP_TAG(EnableAdaptiveTimeStepping);
@@ -173,6 +178,11 @@ public:
 
         int max_pi = EWOMS_GET_PARAM(TypeTag, int, MaxPi);
 
+        int myRank = 0;
+#if HAVE_MPI
+    MPI_Comm_rank(MPI_COMM_WORLD, &myRank);
+#endif
+
 
 
 
@@ -191,7 +201,7 @@ public:
         gettimeofday(&tp1, &tzp1);
         t0 = ((double) tp1.tv_sec+ (double) tp1.tv_usec*1.e-6);
         double elapsed = t0-glob_init_time;
-        printf("\n[MO833] t1_antes_paramount,%f\n",elapsed);
+        printf("\n[MO833] t1_antes_paramount,%d,%f\n",myRank,elapsed);
 
         double tempo_inicio_ate_aqui = elapsed+0;
 
@@ -331,16 +341,16 @@ public:
             total_paramount_time += elapsed;
 
             printf("\n");
-            printf("[MO833] Paramount Iteration,%d,%f,%f\n",iteracao_total,elapsed,(total_paramount_time+tempo_inicio_ate_aqui));
+            printf("[MO833] Paramount Iteration,%d,%d,%f,%f\n",myRank,iteracao_total,elapsed,(total_paramount_time+tempo_inicio_ate_aqui));
         }
 
 
         printf("\n");
 
         if (max_pi>0){
-            printf("[MO833] PI avg,%f,%d\n",(total_paramount_time/iteracao_total),iteracao_total);
+            printf("[MO833] PI avg,%d,%f,%d\n",myRank,(total_paramount_time/iteracao_total),iteracao_total);
         }else{
-            printf("[MO833] PI avg,0,0\n");
+            printf("[MO833] PI avg,%d,0,0\n",myRank);
         }
 
 
