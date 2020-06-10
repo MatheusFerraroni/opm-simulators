@@ -28,9 +28,20 @@
 #include <stdlib.h>
 #include <fstream>
 
+#include <mpi.h>
+
 
 int main(int argc, char** argv)
 {
+
+
+    int world_size;
+    MPI_Comm_size(MPI_COMM_WORLD, &world_size);
+
+    // Get the rank of the process
+    int world_rank;
+    MPI_Comm_rank(MPI_COMM_WORLD, &world_rank);
+
 
     std::ofstream myfile2;
     myfile2.open("/home/ubuntu/OPM_STARTING_TIME.txt");
@@ -71,9 +82,9 @@ int main(int argc, char** argv)
     printf("\n");
     if(total_pi_time>0){
       double beta = (elapsed-total_pi_time)/total_pi_time;
-      printf("[MO833] Beta,%f\n", beta);
+      printf("[MO833] Beta,%d,%f\n", world_rank, beta);
     }else{
-      printf("[MO833] Beta,1\n");
+      printf("[MO833] Beta,%d,1\n", world_rank);
     }
 
     return res;
