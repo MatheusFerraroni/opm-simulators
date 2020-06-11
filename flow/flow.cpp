@@ -37,12 +37,6 @@ int main(int argc, char** argv)
 {
 
 
-        int myRank = 0;
-#if HAVE_MPI
-        MPI_Comm_rank(MPI_COMM_WORLD, &myRank);
-#endif
-
-
     std::ofstream myfile2;
     myfile2.open("/home/ubuntu/OPM_STARTING_TIME.txt");
     
@@ -58,6 +52,14 @@ int main(int argc, char** argv)
 
     auto mainObject = Opm::Main(argc, argv);
     int res = mainObject.runDynamic();
+
+
+  
+    int myRank = 0;
+#if HAVE_MPI
+    MPI_Comm_rank(MPI_COMM_WORLD, &myRank);
+#endif
+
 
 
     struct timeval tp2;
